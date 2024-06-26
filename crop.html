@@ -1,0 +1,169 @@
+{% extends 'layout.html' %} {% block body %}
+
+<style>
+  html body {
+    /* background-color: rgb(206, 206, 228); */
+    background-color: rgb(104 108 115);
+  }
+</style>
+<!--Form Section-->
+<br /><br />
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <img
+        src="../static/images/bg.svg"
+        alt=""
+        class="img-fluid"
+        style="height: 700px; width: 740px"
+      />
+    </div>
+    <div class="col">
+      <h2 class="Crop_cus">
+        <b>Find out the most suitable crop to grow in your farm</b>
+      </h2>
+      <div class="uderline"></div>
+      <br />
+
+      <div
+        style="
+          width: 350px;
+          height: 50rem;
+          margin: 0px auto;
+          color: black;
+          border-radius: 25px;
+          padding: 10px 10px;
+        "
+      >
+        <form method="POST" action="{{ url_for('crop_predict') }}">
+          <div class="form-group">
+            <label for="Nitrogen" style="font-size: 17px"
+              ><b>Nitrogen</b></label
+            >
+            <input
+              type="number"
+              class="form-control"
+              id="Nitrogen"
+              name="nitrogen"
+              value="{{n}}"
+              style="font-weight: bold"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="Phosphorous" style="font-size: 17px"
+              ><b>Phosphorous</b></label
+            >
+            <input
+              type="number"
+              class="form-control"
+              id="Phosphorous"
+              name="phosphorous"
+              value="{{p}}"
+              style="font-weight: bold"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="Pottasium" style="font-size: 17px"
+              ><b>Pottasium</b></label
+            >
+            <input
+              type="number"
+              class="form-control"
+              id="Pottasium"
+              name="pottasium"
+              value="{{k}}"
+              style="font-weight: bold"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="ph" style="font-size: 17px"><b>ph level</b></label>
+            <input
+              type="number"
+              step="0.01"
+              class="form-control"
+              id="ph"
+              name="ph"
+              style="font-weight: bold"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="Rainfall" style="font-size: 17px"
+              ><b>Rainfall (in mm)</b></label
+            >
+            <input
+              type="number"
+              step="0.01"
+              class="form-control"
+              id="Rainfall"
+              name="rainfall"
+              placeholder="Enter the value"
+              style="font-weight: bold"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="temp" style="font-size: 17px"
+              ><b>Temperature</b></label
+            >
+            <input
+              type="number"
+              step="0.01"
+              class="form-control"
+              id="temp"
+              name="temp"
+              value="{{temp}}"
+              placeholder="Enter the value"
+              style="font-weight: bold"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="hum" style="font-size: 17px"
+              ><b>Humidity</b></label
+            >
+            <input
+              type="number"
+              step="0.01"
+              class="form-control"
+              id="hum"
+              value="{{hum}}"
+              name="hum"
+              placeholder="Enter the value"
+              style="font-weight: bold"
+              required
+            />
+          </div>
+          
+
+          <div class="d-flex justify-content-center">
+            <button
+              type="submit"
+              class="btn"
+              style="
+                color: black;
+                font-weight: bold;
+                width: 130px;
+                height: 50px;
+                border-radius: 29px;
+                font-size: 21px;
+                background-color: cadetblue;
+              "
+            >
+              Predict
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Form section -->
+
+  {% endblock %}
+</div>
